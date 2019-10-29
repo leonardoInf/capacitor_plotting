@@ -15,10 +15,15 @@ Python script to plot real data vs. regression data of the voltage across a capa
 Filename: data.csv (can be changes using function_plotting.py <.csv file>)
 
 First line: Title of the graph
+
 Second line: Label for the x-axis
+
 Third line: Label for the y-axis 
+
 Fourth line: Range tuple (startvalue, endvalue, step)
+
 Fifth line: Ignored line (e.g. dashes or blank line) to seperate the header from the actual data
+
 Following lines: y values (data) - seperated by commata
 
 There is a sample file called data.csv in the same directory as this script.
