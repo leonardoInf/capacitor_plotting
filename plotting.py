@@ -1,5 +1,5 @@
 """
-File: function_plotting.py
+File: plotting.py
 Author: https://github.com/leonardoInf
 Date: 30.10.2019
 =================================
@@ -16,6 +16,8 @@ Third line: Label for the y-axis
 Fourth line: Range tuple (startvalue, endvalue, step)
 Fifth line: Ignored line (e.g. dashes or blank line) to seperate the header from the actual data
 Following lines: y values (data) - seperated by commata
+
+The file data.csv in the same directory as this script provides an example.
 
 Mathematical description:
 =================================
