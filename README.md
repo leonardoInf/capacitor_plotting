@@ -29,6 +29,7 @@ Following lines: y values (data) - seperated by commata
 There is a sample file called data.csv in the same directory as this script.
 
 ### Sample output
+![plotting.py output](./Capacitor.png)
 
 ### Documentation
 The script ``plotting.py`` is well commented. There is a large block comment
