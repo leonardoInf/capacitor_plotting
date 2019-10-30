@@ -3,7 +3,7 @@
 Python script to plot real data vs. regression data of the voltage across a capacitor.
 
 ### Dependencies
-1. python3 & pip
+1. [python3](https://www.python.org/) & [pip](https://bootstrap.pypa.io/get-pip.py) (check beforehand if it is already installed)
 2. [numpy](https://pypi.org/project/numpy/)
 3. [matplotlib](https://pypi.org/project/matplotlib/)
 
