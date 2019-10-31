@@ -89,10 +89,10 @@ def curve_fitting(t, data):
 if __name__ == "__main__":    # if this is the main module...
     t, data, fitted_data, a, b, insertionString = calculate()  # do computations based on user data
     insertionString = insertionString.format(round(a,2), round(b,2))
-    if "-" in insertionString:
+    if not isCapacitor and "-" in insertionString:
         insertionString = insertionString.split("+ ")[0] + insertionString.split("+ ")[1]
     
     plt.plot(t, data, "ko-", label=data_label)    # Plot user data. Format string: k: black, o: circles, -: solid line
-    plt.plot(t, fitted_data, "r-", label=fitted_label + insertionString)     # Plot fitted curve
+    #plt.plot(t, fitted_data, "r-", label=fitted_label + insertionString)     # Plot fitted curve
     plt.legend()                                  # add legend
     plt.show()                                    # display interactive graph
