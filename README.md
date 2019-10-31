@@ -1,6 +1,8 @@
 # capacitor_plotting
 
 Python script to plot real data vs. regression data of the voltage across a capacitor.
+Despite it´s name it can be also used for regular linear regression and thus for plotting U-I graphs
+for resistors.
 
 ### Dependencies
 1. [python3](https://www.python.org/) & [pip](https://bootstrap.pypa.io/get-pip.py) (check beforehand if it is already installed)
@@ -16,13 +18,19 @@ Filename: data.csv (can be changes using function_plotting.py <.csv file>)
 
 First line: Title of the graph
 
-Second line: Label for the x-axis
+Second line: Label for the measurement graph
 
-Third line: Label for the y-axis 
+Third line: Label for the fitted graph
 
-Fourth line: Range tuple (startvalue, endvalue, step)
+Fourth line: Label for the x-axis
 
-Fifth line: Ignored line (e.g. dashes or blank line) to seperate the header from the actual data
+Fifth line: Label for the y-axis 
+
+Sixth Line: Mode (resistor/capacitor)
+
+Seventh line: Range tuple (startvalue, endvalue, step)
+
+Eighth line: Ignored (to seperate the header from the actual data)
 
 Following lines: y values (data) - seperated by commata
 
