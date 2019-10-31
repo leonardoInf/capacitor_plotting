@@ -43,16 +43,19 @@ isCapacitor = False
 def calculate():
     t, data = read_data()             # read user data
     a, b = curve_fitting(t, data)     # solve least square problem
+    insertionString = ""
     
     if isCapacitor:
         a = 1/a                       #resubstitute parameter a
         b = np.exp(b)                 #resubstitute
         fitted_vals = [b * (1-np.exp(-t_i/a)) for t_i in t] #limited growth
+        insertionString = " {}*[1-e^(-t/{}))]"
         
     else:
         fitted_vals = [a * t_i + b for t_i in t]     #line
+        insertionString = "{}*U + {}"
         
-    return (t, data, fitted_vals, a, b)
+    return (t, data, fitted_vals, a, b, insertionString)
 
 def read_data():
     global data_label, fitted_label, isCapacitor
@@ -84,9 +87,12 @@ def curve_fitting(t, data):
     return np.linalg.lstsq(A,b, rcond=None)[0].tolist() # solve least square problem
            
 if __name__ == "__main__":    # if this is the main module...
-    t, data, fitted_data, tau, U_B = calculate()  # do computations based on user data
+    t, data, fitted_data, a, b, insertionString = calculate()  # do computations based on user data
+    insertionString = insertionString.format(round(a,2), round(b,2))
+    if "-" in insertionString:
+        insertionString = insertionString.split("+ ")[0] + insertionString.split("+ ")[1]
     
     plt.plot(t, data, "ko-", label=data_label)    # Plot user data. Format string: k: black, o: circles, -: solid line
-    plt.plot(t, fitted_data, label=fitted_label + " {}*[1-e^(-t/{}))]".format(round(U_B,1), round(tau,0)))  # Plot fitted curve
+    plt.plot(t, fitted_data, "r-", label=fitted_label + insertionString)     # Plot fitted curve
     plt.legend()                                  # add legend
     plt.show()                                    # display interactive graph
